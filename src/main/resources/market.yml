@@ -1,0 +1,68 @@
+# =====================================================================
+#  Player market - every player owns a shop, every open shop's listings
+#  appear in /market (alias /ah). Sellers keep (price - sales tax).
+#  Chest GUI for everyone; Java gets dialogs for price/search/rename inputs,
+#  Bedrock gets chat prompts for the same things.
+# =====================================================================
+ui:
+  java: dialog               # dialog | chest  (only affects text inputs & confirmations)
+  dialog-columns: 2
+  list-confirm-title: "<green>List this item?"
+  buy-confirm-title: "<green>Buy this item?"
+  search-title: "Search the market"
+  search-label: "Item name"
+  price-title: "List item"
+  price-label: "Price (Berries) - 100, 2.5k, 1m"
+  rename-title: "Rename shop"
+  rename-label: "Shop name"
+
+max-listings: 10             # per player
+listing-limits:              # highest matching permission wins
+  - permission: berrycore.market.listings.vip
+    max: 25
+  - permission: berrycore.market.listings.mvp
+    max: 40
+min-price: 1
+max-price: 1000000000
+listing-fee-percent: 0       # % of the price charged up front when listing
+sales-tax-percent: 5         # % removed from the seller's payout when something sells (Berry sink)
+blacklist: [BEDROCK, BARRIER, COMMAND_BLOCK, SPAWNER]
+
+default-shop-name: "%player%'s Shop"
+default-shop-icon: CHEST
+shop-name-max-length: 24
+allow-formatting: true       # MiniMessage in shop names, needs permission berrycore.homes.format
+
+gui:
+  title: "<gradient:#4dffb5:#4d9dff>Market</gradient> <gray>%page%/%pages%"
+  directory-title: "<light_purple>Shops"
+  manage-title: "<gold>My shop"
+  filler: GRAY_STAINED_GLASS_PANE
+  prev: "<yellow>Previous page"
+  next: "<yellow>Next page"
+  sort: "<aqua>Sort: <white>%sort%"
+  search: "<green>Search"
+  my-shop: "<gold>My shop"
+  directory: "<light_purple>All shops"
+  list-hand: "<green>List item in hand"
+  rename: "<aqua>Rename shop"
+  icon: "<yellow>Icon: item in hand"
+  open: "<green>Shop is OPEN"
+  closed: "<red>Shop is CLOSED"
+  back: "<gray>Back to market"
+  listing-lore:
+    - ""
+    - "<gray>Price: %price_mm%"
+    - "<gray>Seller: <white>%seller%"
+    - "<gray>Shop: <white>%shop_mm%"
+    - "<dark_gray>Listed %age% ago"
+    - "<yellow>Click to buy"
+  listing-lore-own:
+    - ""
+    - "<gray>Price: %price_mm%"
+    - "<gold>This is your listing"
+    - "<yellow>Click to take it back"
+  manage-lore:
+    - ""
+    - "<gray>Price: %price_mm%"
+    - "<yellow>Click to remove and take back"

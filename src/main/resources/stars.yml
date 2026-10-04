@@ -1,0 +1,100 @@
+# =====================================================================
+#  Stars - earned by playing and by killing, spent in /starshop
+# =====================================================================
+ui:
+  java: chest                # chest | dialog. The shop is slot-based so chest looks best.
+  dialog-columns: 1
+
+starting-stars: 0
+
+income:
+  enabled: true
+  interval-seconds: 600      # 1 star every 10 minutes
+  amount: 1
+  afk:
+    enabled: true            # no star if the player hasn't moved/looked around
+    after-seconds: 300
+
+rewards:
+  kill-player: 10
+  kill-boss: 10              # any entity with a boss bar (Ender Dragon, Wither)
+  kill-mob: 0                # regular mobs
+  use-boss-interface: true   # true = anything implementing Bukkit's Boss
+  boss-entity-types: [ENDER_DRAGON, WITHER]   # extra types counted as bosses (e.g. custom plugin mobs)
+  player-kill-cooldown-seconds: 300           # same killer + same victim only pays once per this time
+  block-same-ip: true                         # no stars for killing someone on your own IP
+
+# The 3x3 "hammer" pickaxe/shovel bought in the shop
+hammer:
+  disable-when-sneaking: true  # crouch to mine a single block
+  only-preferred-tool: true    # only extra blocks the tool is actually good at
+  skip-tile-entities: true     # never break chests, furnaces, spawners...
+  max-hardness-ratio: 3.0      # skip neighbours more than 3x harder than the mined block (stops stone->obsidian)
+  extra-durability-cost: true  # each extra block costs durability (Unbreaking is respected)
+  blacklist: [BEDROCK, END_PORTAL_FRAME, OBSIDIAN, CRYING_OBSIDIAN, REINFORCED_DEEPSLATE]
+
+shop:
+  title: "<gradient:#ffe14d:#ff9d4d>Star Shop</gradient> <gray>(%stars% stars)"
+  rows: 3
+  confirm-title: "<yellow>Buy this item?"
+  confirm-body: "Costs %cost% stars"
+  filler:
+    enabled: true
+    material: BLACK_STAINED_GLASS_PANE
+  lore-footer:
+    - ""
+    - "<gray>Cost: <yellow>%cost% stars"
+    - "<gray>You have: <yellow>%stars% stars"
+    - "<green>Click to buy"
+  items:
+    hammer-pickaxe:
+      slot: 10
+      cost: 1000
+      material: NETHERITE_PICKAXE
+      name: "<gradient:#ff9d4d:#ff4d4d><bold>Hammer Pickaxe</bold></gradient>"
+      lore:
+        - "<gray>Breaks a <white>3x3</white> area (9 blocks)."
+        - "<dark_gray>Crouch to mine a single block."
+      glow: true
+      hammer: 3
+      enchants: {efficiency: 5, unbreaking: 3, mending: 1}
+    hammer-shovel:
+      slot: 11
+      cost: 750
+      material: NETHERITE_SHOVEL
+      name: "<gradient:#ffe14d:#ff9d4d><bold>Hammer Shovel</bold></gradient>"
+      lore:
+        - "<gray>Digs a <white>3x3</white> area."
+      glow: true
+      hammer: 3
+      enchants: {efficiency: 5, unbreaking: 3, mending: 1}
+    berry-pouch:
+      slot: 13
+      cost: 250
+      material: SWEET_BERRIES
+      name: "<light_purple><bold>Berry Pouch</bold>"
+      lore:
+        - "<gray>Turns into <light_purple>500 Berries</light_purple>."
+      give-item: false       # command only, no item handed out
+      commands:
+        - "eco give %player% 500"
+    golden-apples:
+      slot: 15
+      cost: 100
+      material: GOLDEN_APPLE
+      amount: 8
+      name: "<gold>8x Golden Apple"
+      lore: []
+    totem:
+      slot: 16
+      cost: 300
+      material: TOTEM_OF_UNDYING
+      name: "<yellow>Totem of Undying"
+      lore: []
+    elytra:
+      slot: 22
+      cost: 1500
+      material: ELYTRA
+      name: "<aqua>Elytra"
+      lore: []
+      enchants: {unbreaking: 3, mending: 1}

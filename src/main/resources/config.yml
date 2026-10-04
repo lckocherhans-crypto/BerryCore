@@ -1,0 +1,32 @@
+# =====================================================================
+#  BerryCore - general settings
+#  Every feature has its own file: teams.yml, economy.yml, market.yml,
+#  homes.yml, stars.yml, sellgui.yml, shulker.yml, settings.yml, messages.yml
+#  After editing run /berrycore reload  (data is kept; only configs reload)
+# =====================================================================
+
+# How often (minutes) all data files are written to plugins/BerryCore/data/
+autosave-minutes: 3
+
+# ---------------------------------------------------------------------
+# Bedrock / Geyser handling
+# Bedrock players NEVER get Paper dialogs. They get chest menus and
+# "type it in chat" prompts instead.
+# ---------------------------------------------------------------------
+bedrock:
+  # Floodgate is detected automatically if installed (no config needed).
+  # Floodgate UUIDs start with 16 zeros, so we can also detect them without the plugin.
+  uuid-fallback: true
+  # Geyser without Floodgate: treat names with this prefix as Bedrock (e.g. "."). Empty = off.
+  name-prefix: ""
+  # Always treat these Java names as Bedrock (handy for testing your menus)
+  force-players: []
+  # Treat EVERYONE as Bedrock (testing only!)
+  debug-treat-everyone-as-bedrock: false
+
+# ---------------------------------------------------------------------
+# Chat prompt ("type it in chat") used by Bedrock and chest-mode inputs
+# ---------------------------------------------------------------------
+chat-prompt:
+  timeout-seconds: 60
+  cancel-word: "cancel"

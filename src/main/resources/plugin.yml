@@ -1,0 +1,43 @@
+name: BerryCore
+version: '${project.version}'
+main: dev.berrycore.BerryCore
+api-version: '26.2'
+description: Teams, Berries economy, homes, stars, sell GUI, shulker selling, settings and a player market in one plugin.
+softdepend: [PlaceholderAPI, floodgate, Geyser-Spigot]
+
+commands:
+  berrycore:   {description: Admin command (reload/help), aliases: [bc]}
+  team:        {description: Team menu and commands, aliases: [t, teams, clan]}
+  teamchat:    {description: Toggle or use team chat, aliases: [tc]}
+  berries:     {description: Economy hub menu, aliases: [economy, eco-menu]}
+  balance:     {description: Show a balance, aliases: [bal, money]}
+  pay:         {description: Pay another player}
+  baltop:      {description: Richest players, aliases: [topbal, richest]}
+  eco:         {description: Admin economy command}
+  sell:        {description: Sell GUI / sell hand / sell all / sell worth, aliases: [sellgui]}
+  worth:       {description: Show the sell value of your held item}
+  market:      {description: Browse every player shop, aliases: [ah, auction]}
+  shops:       {description: Shop directory}
+  shop:        {description: Manage your own shop, aliases: [myshop]}
+  home:        {description: Teleport to a home}
+  homes:       {description: Open the homes menu}
+  sethome:     {description: Set a home}
+  delhome:     {description: Delete a home}
+  renamehome:  {description: Rename a home}
+  homeicon:    {description: Change a home icon}
+  buyhome:     {description: Buy an extra home slot}
+  stars:       {description: Star balance and admin, aliases: [star]}
+  starshop:    {description: Open the star shop}
+  settings:    {description: Personal settings menu, aliases: [prefs]}
+
+permissions:
+  berrycore.admin:        {default: op, description: All admin features}
+  berrycore.eco.admin:    {default: op}
+  berrycore.stars.admin:  {default: op}
+  berrycore.market.admin: {default: op}
+  berrycore.teams.admin:  {default: op}
+  berrycore.teams.spy:    {default: op}
+  berrycore.teams.gradient: {default: true, description: Allow gradient team names}
+  berrycore.tp.bypass:    {default: op, description: Skip teleport warmup and cooldown}
+  berrycore.homes.bypass: {default: op, description: Ignore home limits}
+  berrycore.homes.format: {default: op, description: Use MiniMessage in home names}

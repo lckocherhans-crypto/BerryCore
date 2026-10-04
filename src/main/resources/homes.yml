@@ -1,0 +1,39 @@
+# =====================================================================
+#  Homes - icon + name are customizable per home.
+#  Java: dialogs   |   Bedrock/Geyser: chest menu
+# =====================================================================
+ui:
+  java: dialog
+  dialog-columns: 2
+  title: "<gradient:#7bff4d:#4dffd2>Homes</gradient>"
+  edit-title: "<aqua>Pick a home to edit"
+
+base-max: 3                  # free homes everyone gets
+# Rank-based bonus homes (highest wins, extra bought slots are added on top)
+permission-limits:
+  - permission: berrycore.homes.vip
+    max: 5
+  - permission: berrycore.homes.mvp
+    max: 8
+
+purchase:
+  enabled: true
+  base-cost: 500             # price of the first extra slot (Berries)
+  multiplier: 2.0            # each extra slot you own multiplies the price: 500, 1000, 2000, 4000 ...
+  max-extra: 20
+
+default-name: "home"         # used by /sethome with no argument
+name-regex: "[a-z0-9_-]{1,16}"
+display-name-max-length: 24
+allow-formatting: true       # MiniMessage/hex in home display names, needs berrycore.homes.format
+default-icon: RED_BED
+blocked-icons: [BARRIER, AIR, BEDROCK]
+blocked-worlds: []           # e.g. ["world_the_end"]
+
+no-arg-opens-menu: true      # /home with several homes opens the menu instead of the first home
+setnoarg-opens-menu: false
+
+teleport:
+  warmup-seconds: 3
+  cooldown-seconds: 5
+  cancel-on-move: true

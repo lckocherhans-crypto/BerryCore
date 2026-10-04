@@ -1,0 +1,66 @@
+# =====================================================================
+#  /settings - per-player toggles
+#  locked: true  -> players can't change it, the server value is forced (locked-value)
+#  enabled: false -> option is hidden and the default is used
+#  Placeholder: %berrycore_setting_<id with dashes as underscores>%
+# =====================================================================
+ui:
+  java: dialog               # dialog = checkbox form | chest = toggle menu (Bedrock always chest)
+  dialog-columns: 1
+title: "<gradient:#ff4d8d:#b24dff>Settings</gradient>"
+dialog-body: "Tick the options you want, then save."
+state-on: "<green>ENABLED"
+state-off: "<red>DISABLED"
+click-hint: "<gray>Click to toggle"
+
+options:
+  confirm-market-purchase:
+    name: "Confirm market purchases"
+    description: ["<gray>Ask before buying from the market.", "<gray>Turn off for one-click buying."]
+    icon: EMERALD
+    default: true
+  confirm-market-listing:
+    name: "Confirm market listings"
+    description: ["<gray>Ask before listing an item for sale."]
+    icon: WRITABLE_BOOK
+    default: true
+  confirm-sell-gui:
+    name: "Confirm sell chest"
+    description: ["<gray>Sell button needs two clicks and", "<gray>ESC returns your items instead of selling."]
+    icon: CHEST
+    default: false
+  confirm-sell-all:
+    name: "Confirm /sell all"
+    description: ["<gray>Ask before selling your whole inventory."]
+    icon: HOPPER
+    default: true
+  confirm-star-purchase:
+    name: "Confirm star shop purchases"
+    description: ["<gray>Ask before spending stars."]
+    icon: NETHER_STAR
+    default: true
+  notify-sales:
+    name: "Notify me when my shop sells"
+    description: ["<gray>Chat message when someone buys from you."]
+    icon: BELL
+    default: true
+  notify-stars:
+    name: "Star messages"
+    description: ["<gray>Chat message when you earn stars."]
+    icon: GLOWSTONE_DUST
+    default: true
+  notify-payments:
+    name: "Payment messages"
+    description: ["<gray>Chat message when someone pays you."]
+    icon: GOLD_NUGGET
+    default: true
+  accept-payments:
+    name: "Accept payments"
+    description: ["<gray>Let other players use /pay on you."]
+    icon: GOLD_INGOT
+    default: true
+  sell-sounds:
+    name: "Sell sounds"
+    description: ["<gray>Play a sound after selling."]
+    icon: NOTE_BLOCK
+    default: true

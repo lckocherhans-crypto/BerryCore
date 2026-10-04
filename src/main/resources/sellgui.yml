@@ -1,0 +1,29 @@
+# =====================================================================
+#  /sell  - the chest where you drop items and press the button
+#  Closing the chest with ESC also sells (sell-on-close).
+#  Items without a price are handed straight back.
+# =====================================================================
+rows: 6                      # 2-6. The sell button always sits in the bottom-right corner
+title: "<gradient:#ff4d8d:#ffb347>Sell Items</gradient>"
+sell-on-close: true
+# NOTE: if a player turned ON "confirm-sell-gui" in /settings, ESC returns the items
+# instead of selling and the button needs two clicks.
+
+# Placeholders: %total_mm% %items% %multiplier%
+button:
+  material: LIME_CONCRETE
+  name: "<green><bold>SELL"
+  lore:
+    - "<gray>Total value: %total_mm%"
+    - "<gray>Items: <white>%items%"
+    - "<gray>Multiplier: <white>x%multiplier%"
+    - ""
+    - "<yellow>Click to sell (or just close the chest)"
+  glow: true
+button-confirm:
+  material: ORANGE_CONCRETE
+  name: "<gold><bold>CLICK AGAIN TO CONFIRM"
+  lore:
+    - "<gray>Total value: %total_mm%"
+    - "<gray>Items: <white>%items%"
+  glow: true

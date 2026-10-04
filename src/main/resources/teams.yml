@@ -1,0 +1,59 @@
+# =====================================================================
+#  Teams
+#  Java players get Paper dialogs, Bedrock/Geyser players get chest menus.
+# =====================================================================
+ui:
+  # dialog = Paper dialog screens (Java only)   |  chest = chest menus for everyone
+  # Bedrock always uses chest menus no matter what this says.
+  java: dialog
+  dialog-columns: 2
+  title: "<gradient:#4dc3ff:#7b4dff>Teams</gradient>"
+  homes-title: "<green>Team homes"
+  members-title: "<gold>Members"
+
+# Team name rules (the plain name; colour is separate)
+name:
+  min-length: 3
+  max-length: 16
+  regex: "[A-Za-z0-9_]+"
+  blacklist: ["admin", "staff", "mod", "owner"]
+
+# Colours: single hex = solid, several = gradient   (/team color #ff0000 #0000ff)
+color:
+  default: "#ffffff"
+  allow-hex: true
+  allow-named: true          # red, gold, aqua ...
+  allow-gradient: true       # also needs permission berrycore.teams.gradient
+  max-gradient-colors: 4
+
+roles:
+  member: "Member"
+  officer: "Officer"
+  leader: "Leader"
+
+create-cost: 0               # Berries charged when creating a team
+max-members: 10
+invite-expire-seconds: 60
+friendly-fire-default: false
+friendly-fire-message: true  # action-bar "friendly fire is off"
+
+chat:
+  # Format used for team chat. %player%, %message%, <team_mm> are filled in.
+  team-format: "<dark_gray>[<team_mm>]</dark_gray> <gray>%player%<dark_gray>: <white>%message%"
+  spy-enabled: true          # players with berrycore.teams.spy see all team chat
+  spy-prefix: "<dark_gray>[Spy] "
+  # Tag shown in public chat for team members. Wraps whatever chat format you already have.
+  public-tag:
+    enabled: true
+    format: "<dark_gray>[</dark_gray>%team_mm%<dark_gray>]</dark_gray> "
+
+homes:
+  max: 3
+  set-role: OFFICER          # MEMBER | OFFICER | LEADER - who can set/delete team homes
+
+teleport:
+  warmup-seconds: 3
+  cooldown-seconds: 10
+  cancel-on-move: true       # permission berrycore.tp.bypass skips everything
+
+placeholder-no-team: ""      # what %berrycore_team% shows for teamless players

@@ -1,0 +1,8 @@
+# =====================================================================
+#  Shulker boxes in the sell GUI, /sell hand and /sell all
+#  Everything inside is tallied at normal item prices, the items inside
+#  are sold and you get the (empty) shulker box back with its colour and name.
+# =====================================================================
+enabled: true
+sell-box-itself: false       # true = the box is sold too (using its price in economy.yml) instead of returned
+# Items inside without a price stay in the shulker.

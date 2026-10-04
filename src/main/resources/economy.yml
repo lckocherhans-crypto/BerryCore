@@ -1,0 +1,183 @@
+# =====================================================================
+#  Economy - currency: Berries
+#  Player driven: server sell prices are intentionally LOW, real money is
+#  made in the player market (market.yml). Raise/lower prices below.
+# =====================================================================
+ui:
+  java: dialog               # dialog | chest   (used for /pay form etc.; Bedrock = chest/chat)
+  dialog-columns: 2
+
+starting-balance: 100
+
+currency:
+  singular: "Berry"
+  plural: "Berries"
+  # The default Minecraft font can't render most emoji, so the symbol is empty by default.
+  symbol: ""
+  # Placeholders: %symbol% %amount% %name%
+  format: "<light_purple>%symbol%%amount% %name%</light_purple>"
+  decimals: 2
+  thousands-separator: true
+  compact-above: 0           # e.g. 1000000 turns 2500000 into 2.5M. 0 = never
+
+pay:
+  minimum: 1
+  tax-percent: 0
+  allow-self: false
+  dialog-title: "<gold>Pay a player"
+  label-player: "Player name"
+  label-amount: "Amount (1000, 1.5k, 2m)"
+
+baltop:
+  size: 10
+
+hub:
+  title: "<gradient:#ff4d8d:#b24dff>Berries</gradient>"
+  balance: "<light_purple>Balance"
+  sell: "<green>Sell Items"
+  market: "<aqua>Market"
+  pay: "<gold>Pay a player"
+  stars: "<yellow>Star shop"
+  settings: "<gray>Settings"
+
+# ---------------------------------------------------------------------
+# Quick sell (/sell hand, /sell all, /sell gui, /worth)
+# ---------------------------------------------------------------------
+sell-all:
+  skip-hotbar: false         # true = /sell all ignores slots 1-9
+sell-customized-items: false # false = items with a custom name or lore can't be sold
+scale-by-durability: true    # damaged tools sell for less
+default-price: 0             # price for items not listed below (0 = unsellable)
+sell-blacklist: [BEDROCK, BARRIER, COMMAND_BLOCK, SPAWNER, DRAGON_EGG]
+
+sell-multiplier-base: 1.0
+# Highest matching multiplier wins
+sell-multipliers:
+  - permission: berrycore.sell.multiplier.vip
+    multiplier: 1.25
+  - permission: berrycore.sell.multiplier.mvp
+    multiplier: 1.5
+
+# Price PER ITEM in Berries. Material names: https://jd.papermc.io/paper/org/bukkit/Material.html
+sell-prices:
+  # farming
+  WHEAT: 1.0
+  CARROT: 0.8
+  POTATO: 0.8
+  BEETROOT: 0.8
+  MELON_SLICE: 0.4
+  PUMPKIN: 2.0
+  SUGAR_CANE: 0.6
+  CACTUS: 0.5
+  BAMBOO: 0.2
+  KELP: 0.2
+  SWEET_BERRIES: 1.0
+  GLOW_BERRIES: 1.2
+  COCOA_BEANS: 0.8
+  NETHER_WART: 1.0
+  BROWN_MUSHROOM: 0.8
+  RED_MUSHROOM: 0.8
+  HONEY_BOTTLE: 6.0
+  EGG: 0.5
+  # mob drops
+  ROTTEN_FLESH: 0.2
+  BONE: 0.6
+  STRING: 0.6
+  SPIDER_EYE: 0.8
+  GUNPOWDER: 1.5
+  ENDER_PEARL: 5.0
+  BLAZE_ROD: 6.0
+  GHAST_TEAR: 12.0
+  SLIME_BALL: 2.5
+  PHANTOM_MEMBRANE: 6.0
+  LEATHER: 1.0
+  FEATHER: 0.4
+  INK_SAC: 0.6
+  PRISMARINE_SHARD: 1.5
+  SHULKER_SHELL: 40.0
+  NETHER_STAR: 500.0
+  WITHER_SKELETON_SKULL: 150.0
+  # food
+  BEEF: 1.2
+  PORKCHOP: 1.2
+  CHICKEN: 0.9
+  MUTTON: 1.0
+  COD: 0.8
+  SALMON: 1.0
+  COOKED_BEEF: 2.0
+  COOKED_PORKCHOP: 2.0
+  COOKED_CHICKEN: 1.6
+  BREAD: 2.0
+  # ores and minerals
+  COAL: 2.0
+  CHARCOAL: 1.5
+  RAW_COPPER: 1.5
+  COPPER_INGOT: 2.0
+  RAW_IRON: 3.0
+  IRON_INGOT: 4.0
+  IRON_NUGGET: 0.45
+  RAW_GOLD: 5.0
+  GOLD_INGOT: 7.0
+  GOLD_NUGGET: 0.8
+  REDSTONE: 1.0
+  LAPIS_LAZULI: 1.5
+  QUARTZ: 2.0
+  AMETHYST_SHARD: 1.5
+  DIAMOND: 30.0
+  EMERALD: 25.0
+  NETHERITE_SCRAP: 60.0
+  NETHERITE_INGOT: 280.0
+  ANCIENT_DEBRIS: 80.0
+  COAL_BLOCK: 18.0
+  IRON_BLOCK: 36.0
+  GOLD_BLOCK: 63.0
+  DIAMOND_BLOCK: 270.0
+  EMERALD_BLOCK: 225.0
+  REDSTONE_BLOCK: 9.0
+  LAPIS_BLOCK: 13.5
+  # blocks
+  COBBLESTONE: 0.1
+  STONE: 0.15
+  DEEPSLATE: 0.12
+  COBBLED_DEEPSLATE: 0.1
+  DIORITE: 0.1
+  ANDESITE: 0.1
+  GRANITE: 0.1
+  TUFF: 0.1
+  DIRT: 0.05
+  SAND: 0.2
+  RED_SAND: 0.2
+  GRAVEL: 0.15
+  CLAY_BALL: 0.5
+  NETHERRACK: 0.05
+  BASALT: 0.2
+  BLACKSTONE: 0.2
+  OBSIDIAN: 4.0
+  CRYING_OBSIDIAN: 8.0
+  END_STONE: 0.5
+  GLOWSTONE_DUST: 1.0
+  SOUL_SAND: 0.3
+  MAGMA_BLOCK: 1.0
+  PRISMARINE: 1.0
+  # wood
+  OAK_LOG: 1.0
+  SPRUCE_LOG: 1.0
+  BIRCH_LOG: 1.0
+  JUNGLE_LOG: 1.2
+  ACACIA_LOG: 1.0
+  DARK_OAK_LOG: 1.0
+  MANGROVE_LOG: 1.0
+  CHERRY_LOG: 1.2
+  CRIMSON_STEM: 1.0
+  WARPED_STEM: 1.0
+  STICK: 0.1
+  # misc
+  EXPERIENCE_BOTTLE: 8.0
+  ENDER_EYE: 8.0
+  TOTEM_OF_UNDYING: 400.0
+  ELYTRA: 600.0
+  TRIDENT: 150.0
+  HEART_OF_THE_SEA: 120.0
+  NAUTILUS_SHELL: 40.0
+  SCUTE: 25.0
+  ECHO_SHARD: 60.0
